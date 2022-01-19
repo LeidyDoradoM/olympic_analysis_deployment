@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Olympics Dashboard</title>
+    <link rel="stylesheet" 
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous"/>
+    <!-- overrating the bootstrap style, calling custome css-->
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/custom.css')}}" />
+  </head>
+  <body class="bg-light">
+    <div class="wrapper">
+      <!-- Add Jumbotron to Header -->
+      <div class="jumbotron">
+        <h1 style="font-size:40px;">Dashboard</h1>
+
+        <nav class="navbar navbar-expand-lg" style="background-color: #d0cafc45">
+          <form action="/loading">
+            <!--adding button for creating database-->
+            <input align="center" type="submit" value="Loading Data" class="btn btn-primary">
+          </form>
+          <form action="/clustering">
+            <!--<label for="years">Change your Olympic Game:</label>-->
+              <select name="years" id="years" class="form-select border-0" aria-label=".form-select-lg example">
+                <option selected> Olympic Games</option>
+                <option value="1992">Barcelona, 1992</option>
+                <option value="1996">Atlanta, 1996</option>
+                <option value="2000">Sydney, 2000</option>
+                <option value="2004">Athens, 2004</option>
+                <option value="2008">Beijing, 2008</option>
+                <option value="2012">London, 2012</option>
+                <option value="2016">Rio, 2016</option>
+                <option value="2020">Tokyo, 2020</option>
+              </select>
+              <input  align="center" type="submit" value="Submit" class="btn btn-primary"> 
+            </form>
+        </nav>
+
+      </div>  
+      <!--Section for choosing Clustering and Plots -->
+      <div class="container-fluid">
+        <div class="row"> 
+          <div class="col-md-12"><!--Plots after clustering is made-->
+            <div class="card border-info" style="max-width: 18r3m;">
+              <div class="card-header text-white" style="background-color:#0f1b88;">
+               <h2 class="text-center"> {{game_name}}</h2>  <!--title of scatterplot-->
+              </div>
+            </div>
+            <div class="card-body" style="border-color:#0f1b88;" align ="center"> <!--space for scatterplot-->
+                {% if years is defined %}
+
+                  <div class="row"> 
+                    <div class="col-md-6">
+                      <div class="embed-responsive embed-responsive-4by3">
+                        <iframe frameborder='0' scrolling='no' 
+                        src='../static/images/clustering-{{years}}.html' 
+                        class="embed-responsive-item" style="border:none;" ></iframe>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="embed-responsive embed-responsive-4by3">
+                        <iframe frameborder='0' scrolling='no' 
+                        src='../static/images/map-{{years}}.html' 
+                        class="embed-responsive-item" style="border:none;" ></iframe>
+                      </div>
+                    </div>
+                  </div>
+
+                {% else %}
+                    <!-- nothing  -->
+                  {% endif %}
+            </div>
+          </div> 
+
+        </div>    
+      </div>
+    </div>
+  </body>
+</html>

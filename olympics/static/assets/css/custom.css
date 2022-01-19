@@ -1,0 +1,35 @@
+/* Styling the button. change size of button and color and space with selector */ 
+.btn { font-size: 18px;
+    color: #0f1b88;
+    background-color: #ffffff;
+    border-color: #0f1b88;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    margin: 10px;
+  }
+.btn:hover {
+      background-color:#0f1b88;
+      border-color: #0f1b88;
+      color: #ffffff;
+  }
+.form-select{
+    margin: 10px;
+    font-size: 20px;
+    color: #0f1b88;
+    border-color: #ffffff;
+    letter-spacing: 0.1em;
+}
+.form-select:hover{
+    background: #0f1b88;
+    background-color: #0f1b88; /* for IE */
+    color: #ffffff;
+}
+.form-select:checked {
+    border-color: #0f1b88;
+}
+/* changing color of jumbotron to green and white*/
+.jumbotron{
+    background-image: url("../../images/logoOlympics1.png");
+    color: #0f1b88;
+    min-height: 50px;
+}

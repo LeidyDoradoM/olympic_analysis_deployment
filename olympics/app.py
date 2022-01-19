@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from clusteringData import Kmean_Olympics
+from .clusteringData import Kmean_Olympics
 from cleaningIndicators import cleaning_economics
 from cleaningOlympics import cleaning_olympics
 from data_exploration import creating_data
